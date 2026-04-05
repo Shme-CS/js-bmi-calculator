@@ -6,6 +6,12 @@ A modern, production-quality BMI (Body Mass Index) calculator built with HTML5, 
 ![License](https://img.shields.io/badge/license-MIT-green.svg)
 ![JavaScript](https://img.shields.io/badge/javascript-ES6+-yellow.svg)
 
+## 🔗 Live Demo
+
+- **🌐 Live App**: [https://shme-cs.github.io/js-bmi-calculator/](https://shme-cs.github.io/js-bmi-calculator/)
+- **📦 GitHub Repository**: [https://github.com/Shme-CS/js-bmi-calculator](https://github.com/Shme-CS/js-bmi-calculator)
+- **⚡ Vercel (Alternative)**: Deploy via [Vercel Dashboard](https://vercel.com/new/clone?repository-url=https://github.com/Shme-CS/js-bmi-calculator)
+
 ## 🎯 Overview
 
 BMI Calculator is a fully-featured web application that demonstrates modern frontend development practices. Built without frameworks, it showcases clean JavaScript architecture, responsive design, and smooth user interactions.
@@ -67,7 +73,7 @@ js-bmi-calculator/
 
 1. Clone the repository:
 ```bash
-git clone https://github.com/yourusername/js-bmi-calculator.git
+git clone https://github.com/Shme-CS/js-bmi-calculator.git
 ```
 
 2. Navigate to the project directory:
@@ -309,7 +315,7 @@ SOFTWARE.
 
 ## 👨‍💻 Author
 
-Created with ❤️ by [Your Name]
+Created with ❤️ by [Shme-CS](https://github.com/Shme-CS)
 
 ## 🙏 Acknowledgments
 
@@ -324,4 +330,8 @@ Created with ❤️ by [Your Name]
 
 📧 Questions? Open an issue or reach out!
 
-🔗 [Live Demo](#) | [Report Bug](#) | [Request Feature](#)
+🔗 **Links**:
+- [GitHub Repository](https://github.com/Shme-CS/js-bmi-calculator)
+- [Live Demo - GitHub Pages](https://shme-cs.github.io/js-bmi-calculator/)
+- [Report Bug](https://github.com/Shme-CS/js-bmi-calculator/issues)
+- [Request Feature](https://github.com/Shme-CS/js-bmi-calculator/issues)

@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Professional BMI Calculator - Calculate your Body Mass Index with metric and imperial units">
+    <title>BMI Calculator - Body Mass Index Calculator</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Theme Toggle -->
+        <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
+            <span class="theme-icon">🌙</span>
+        </button>
+
+        <!-- Main Calculator Section -->
+        <div class="calculator-wrapper">
+            <div class="calculator-card">
+                <header class="calculator-header">
+                    <h1 class="app-title">BMI Calculator</h1>
+                    <p class="app-subtitle">Calculate Your Body Mass Index</p>
+                </header>
+
+                <!-- Unit Toggle -->
+                <div class="unit-toggle">
+                    <button class="unit-btn active" data-unit="metric">
+                        Metric (kg/cm)
+                    </button>
+                    <button class="unit-btn" data-unit="imperial">
+                        Imperial (lbs/in)
+                    </button>
+                </div>
+
+                <!-- Calculator Form -->
+                <form class="calculator-form" id="bmiForm">
+                    <div class="form-group">
+                        <label for="height" class="form-label">
+                            Height <span class="unit-label" id="heightUnit">(cm)</span>
+                        </label>
+                        <input 
+                            type="number" 
+                            id="height" 
+                            class="form-input"
+                            placeholder="Enter your height"
+                            step="0.1"
+                            required
+                        >
+                        <span class="error-message" id="heightError"></span>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="weight" class="form-label">
+                            Weight <span class="unit-label" id="weightUnit">(kg)</span>
+                        </label>
+                        <input 
+                            type="number" 
+                            id="weight" 
+                            class="form-input"
+                            placeholder="Enter your weight"
+                            step="0.1"
+                            required
+                        >
+                        <span class="error-message" id="weightError"></span>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">
+                            Calculate BMI
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="resetBtn">
+                            Reset
+                        </button>
+                    </div>
+                </form>
+
+                <!-- Result Section -->
+                <div class="result-section" id="resultSection">
+                    <div class="result-content">
+                        <div class="bmi-value-container">
+                            <span class="bmi-label">Your BMI</span>
+                            <span class="bmi-value" id="bmiValue">0.0</span>
+                        </div>
+                        
+                        <div class="bmi-category" id="bmiCategory">
+                            <span class="category-badge"></span>
+                        </div>
+
+                        <div class="bmi-message" id="bmiMessage"></div>
+
+                        <!-- BMI Gauge -->
+                        <div class="bmi-gauge" id="bmiGauge">
+                            <svg class="gauge-svg" viewBox="0 0 200 120">
+                                <path class="gauge-bg" d="M 20 100 A 80 80 0 0 1 180 100"></path>
+                                <path class="gauge-fill" id="gaugeFill" d="M 20 100 A 80 80 0 0 1 180 100"></path>
+                                <circle class="gauge-pointer" id="gaugePointer" cx="100" cy="100" r="5"></circle>
+                            </svg>
+                            <div class="gauge-labels">
+                                <span class="gauge-label">Underweight</span>
+                                <span class="gauge-label">Normal</span>
+                                <span class="gauge-label">Overweight</span>
+                                <span class="gauge-label">Obese</span>
+                            </div>
+                        </div>
+
+                        <!-- BMI Range Bar -->
+                        <div class="bmi-range-bar">
+                            <div class="range-segment underweight">
+                                <span class="range-label">Under</span>
+                                <span class="range-value">&lt;18.5</span>
+                            </div>
+                            <div class="range-segment normal">
+                                <span class="range-label">Normal</span>
+                                <span class="range-value">18.5-24.9</span>
+                            </div>
+                            <div class="range-segment overweight">
+                                <span class="range-label">Over</span>
+                                <span class="range-value">25-29.9</span>
+                            </div>
+                            <div class="range-segment obese">
+                                <span class="range-label">Obese</span>
+                                <span class="range-value">&ge;30</span>
+                            </div>
+                            <div class="range-indicator" id="rangeIndicator"></div>
+                        </div>
+
+                        <!-- Health Recommendations -->
+                        <div class="health-recommendations" id="healthRecommendations"></div>
+
+                        <!-- Export Button -->
+                        <button class="btn btn-outline" id="exportBtn">
+                            Export Result
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Section -->
+            <div class="history-card" id="historyCard">
+                <div class="history-header">
+                    <h2 class="history-title">Calculation History</h2>
+                    <button class="btn-clear-history" id="clearHistoryBtn">
+                        Clear All
+                    </button>
+                </div>
+                <div class="history-list" id="historyList">
+                    <p class="history-empty">No calculations yet</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- BMI Info Chart -->
+        <div class="info-section">
+            <h2 class="info-title">BMI Categories</h2>
+            <div class="bmi-chart">
+                <div class="chart-item">
+                    <div class="chart-color underweight-color"></div>
+                    <div class="chart-info">
+                        <h3>Underweight</h3>
+                        <p class="chart-range">BMI &lt; 18.5</p>
+                        <p class="chart-description">Below healthy weight range</p>
+                    </div>
+                </div>
+                <div class="chart-item">
+                    <div class="chart-color normal-color"></div>
+                    <div class="chart-info">
+                        <h3>Normal Weight</h3>
+                        <p class="chart-range">BMI 18.5 - 24.9</p>
+                        <p class="chart-description">Healthy weight range</p>
+                    </div>
+                </div>
+                <div class="chart-item">
+                    <div class="chart-color overweight-color"></div>
+                    <div class="chart-info">
+                        <h3>Overweight</h3>
+                        <p class="chart-range">BMI 25 - 29.9</p>
+                        <p class="chart-description">Above healthy weight range</p>
+                    </div>
+                </div>
+                <div class="chart-item">
+                    <div class="chart-color obese-color"></div>
+                    <div class="chart-info">
+                        <h3>Obese</h3>
+                        <p class="chart-range">BMI &ge; 30</p>
+                        <p class="chart-description">Significantly above healthy range</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
